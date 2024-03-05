@@ -10,13 +10,6 @@ import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface pokemonProps {
-  id: string;
-  url: string;
-  name: string;
-  imageUrl:string;
-
-}
 
 export default function Home() {
 

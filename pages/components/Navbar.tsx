@@ -23,13 +23,13 @@ export default function Navbar() {
           <Image src="/trustcrow.jpg" alt="logo" width={100} height={30} />
           <div className={styles.rightnav}>
             <div className={styles.respnav}>
-              <Link href="#" className={styles.menuitem}>
-                Product{" "}
+              <Link href="/" className={styles.menuitem}>
+                Home{" "}
               </Link>
-              <Link href="#" className={styles.menuitem}>
+              <Link href="/" className={styles.menuitem}>
                 Services
               </Link>
-              <Link href="#" className={styles.menuitem}>
+              <Link href="/" className={styles.menuitem}>
                 About
               </Link>
 
@@ -53,13 +53,13 @@ export default function Navbar() {
               </div>
 
               <div className={styles.mobilelinks}>
-                <Link href="/#" className={styles.mobilelink}>
-                  Product
+                <Link href="/" className={styles.mobilelink}>
+                  Home
                 </Link>
-                <Link href="/#" className={styles.mobilelink}>
+                <Link href="/" className={styles.mobilelink}>
                   Services
                 </Link>
-                <Link href="/#" className={styles.mobilelink}>
+                <Link href="/" className={styles.mobilelink}>
                   About
                 </Link>
               </div>

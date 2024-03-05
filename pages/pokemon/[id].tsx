@@ -1,5 +1,4 @@
 import Head from "next/head";
-import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Pokemon.module.css";
 import Navbar from "../components/Navbar";
@@ -13,34 +12,7 @@ import Loader from "../components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
 
-interface pokemonProps {
-  id: string;
-  url: string;
-  name: string;
-  imageUrl: string;
-  pokemon: {
-    id: string;
-    url: string;
-    name: string;
-  };
-}
 
-interface PokemonType {
-  slot: number;
-  type: {
-    name: string;
-    url: string;
-  };
-}
-
-interface PokemonStat {
-  base_stat: number;
-  effort: number;
-  stat: {
-    name: string;
-    url: string;
-  };
-}
 
 export default function Pokemon() {
   const [selectedPokemon, setSelectedPokemon] = useState<pokemonProps[]>([]);
