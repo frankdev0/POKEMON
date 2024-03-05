@@ -19,30 +19,30 @@ interface pokemonProps {
 
 }
 
-export default function Home() {
+export default function Pokemon() {
 
-  const [pokemons, setPokemons] = useState<pokemonProps[]>([]);
-  const router = useRouter()
+  const [selectedPokemon, setSelectedPokemon] = useState<string | null>(null);
+  const router = useRouter();
+  const { url } = router.query;
 
-  useEffect(() => {
-    const fetchData = async () => {
+  console.log('name', url)
+
+
+
+
+useEffect(() => {
+    const handleSelect = async (url: string) => {
         try {
-            const response = await axios.get(`https://pokeapi.co/api/v2/type`);
-            setPokemons(response?.data?.results);
+            const response = await axios.get(url);
+            setSelectedPokemon(response.data);
+            console.log('Selected Pokemon:', response.data);
         } catch (error) {
             console.error('Error fetching data:', error);
         }
-    };
+      };
 
-    fetchData();
+    
 }, []);
-
-
-const handleSelect = (url: string) => {
-  const number = url.split('/').slice(-2, -1)[0]; 
-  router.push(`/pokemon/${number}`); 
-};
-
 
  
 
@@ -58,17 +58,18 @@ const handleSelect = (url: string) => {
        <Navbar/>
        <div className="my-5">
        <div className={styles.pokemongrid}>
-        {pokemons &&
+
+        HERE ARE THE POKEMONS
+        {/* {pokemons &&
             pokemons.map((pokemon, index) => (
                 <div className={styles.eachpokemon} key={index}>
                     <ul>
-                      <Link href={`/pokemon/${pokemon.url.split('/').slice(-2, -1)[0]}`}>
+                      <Link href={`/pokemon/${pokemon.url}`}>
+                      </Link>
                         <li onClick={() => handleSelect(pokemon.url)}>{pokemon.name}</li>
-                    </Link>
-                        
                     </ul>
                 </div>
-            ))}
+            ))} */}
     </div>
        </div>
        <Footer/>
