@@ -9,6 +9,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { Modal } from "react-bootstrap";
+import ReactPaginate from "react-paginate";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -65,6 +66,9 @@ export default function Pokemon() {
   const [stats, setStats] = useState<PokemonStat[]>([]);
   const [showModal, setShowModal] = useState(false)
   const [loading, setLoading] = useState(false)
+  const [currentPage, setCurrentPage] = useState(0);
+  const itemsPerPage = 10;
+  const [search, setSearch] = useState('');
   const [details, setDetails] = useState({
     name: "",
     id: "",
@@ -96,11 +100,19 @@ const handleCloseModal = () => {
     fetchData();
 }, [id]);
 
+const handlePageClick = (event:any) => {
+  const newOffset = event.selected * itemsPerPage % selectedPokemon.length;
+  setCurrentPage(newOffset);
+};
 
 
-const handleViewClick = async(name: string) => {
-  // const number = url.split('/').slice(-2, -1)[0]; 
-  // router.push(`/pokemondetails/${number}`); 
+const filteredPokemon = selectedPokemon.filter((item) =>
+item.pokemon.name.toLowerCase().includes(search.toLowerCase())
+);
+
+const currentItems = filteredPokemon.slice(currentPage, currentPage + itemsPerPage);
+
+const handleViewClick = async(name: string) => { 
   setLoading(true)
   try {
     const response = await axios.get(`https://pokeapi.co/api/v2/pokemon/${name}/`);
@@ -151,19 +163,31 @@ const handleViewClick = async(name: string) => {
             <div className="d-flex justify-content-center">TYPES OF POKEMONS</div>
             
           <div className={styles.tableContainer}>
-            
+            <div className={styles.inputContainer}>
+            <input
+        type="text"
+        placeholder="Search Pokémon..."
+        value={search}
+        className={styles.searchfield}
+        onChange={(e) => {
+          setSearch(e.target.value);
+          setCurrentPage(0); 
+        }}
+      />
+            </div>
+        
+      {filteredPokemon.length > 0 ? (
         <table className={`${styles.customTable}`}>
       <thead>
         <tr>
           <th className={styles.tableheader}>ID.</th>
           <th className={styles.tableheader}>TITLE</th>
           <th className={styles.tableheader}>URL</th>
-          {/* <th className={styles.tableheader}>D</th> */}
           <th className={styles.tableheader}>Action</th>
         </tr>
       </thead>
       <tbody>
-                {selectedPokemon && selectedPokemon.map((item, index) => {
+                {currentItems && currentItems.map((item, index) => {
                   const { pokemon } = item;
                   const isEvenRow = index % 2 === 0;
                   const cellStyle = {
@@ -179,9 +203,6 @@ const handleViewClick = async(name: string) => {
                       <td style={cellStyle}>{pokemon.name}</td>
                       <td style={cellStyle}>{pokemon.url}</td>
                       <td>
-                      {/* <Link href={`/pokemondetails/${pokemon.url.split('/').slice(-2, -1)[0]}`}>
-                        <li onClick={() => handleViewClick(pokemon.url)}>{pokemon.name}</li>
-                    </Link> */}
                         <button className={styles.btnsubmit} onClick={() => handleViewClick(pokemon.name)}>View</button>
                       </td>
                     </tr>
@@ -189,6 +210,29 @@ const handleViewClick = async(name: string) => {
                 })}
               </tbody>
     </table>
+     ) : (
+      <div>
+        No search matches found.
+      </div>
+    )}
+   
+      <div className="d-flex justify-content-center my-5">
+      <ReactPaginate
+          breakLabel="..."
+          nextLabel={null}
+          previousLabel={null}
+          onPageChange={handlePageClick}
+          marginPagesDisplayed={2}
+          pageRangeDisplayed={5}
+          pageCount={Math.ceil(selectedPokemon.length / itemsPerPage)}
+          containerClassName={styles.pagination}
+          nextLinkClassName={styles['page-num'] + ' ' + styles['next-arrow']}
+          previousLinkClassName={styles['page-num'] + ' ' + styles['previous-arrow']}
+          pageLinkClassName={styles['page-num']}
+          activeLinkClassName={styles.active}
+        />
+      </div>
+     
     </div>
     </div>
     </div>
