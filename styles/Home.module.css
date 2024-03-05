@@ -290,6 +290,12 @@
     padding: 0rem 0rem 0rem 2rem;
     margin-top: 3rem;
   }
+
+  .pokemongrid {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+
+  }
 }
 
 .btnmedia {

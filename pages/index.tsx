@@ -1,14 +1,22 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import Navbar from "../components/Navbar";
+import Footer from "../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 
 const inter = Inter({ subsets: ["latin"] });
+
+interface pokemonProps {
+  id: string;
+  url: string;
+  name: string;
+  imageUrl:string;
+
+}
 
 
 export default function Home() {

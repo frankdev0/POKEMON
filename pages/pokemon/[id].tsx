@@ -1,16 +1,45 @@
 import Head from "next/head";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Pokemon.module.css";
-import Navbar from "../components/Navbar";
-import Footer from "../components/Footer";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useRouter } from "next/router";
 import { Modal } from "react-bootstrap";
 import ReactPaginate from "react-paginate";
-import Loader from "../components/Loader";
+import Loader from "../../components/Loader";
 
 const inter = Inter({ subsets: ["latin"] });
+
+interface pokemonProps {
+  id: string;
+  url: string;
+  name: string;
+  imageUrl: string;
+  pokemon: {
+    id: string;
+    url: string;
+    name: string;
+  };
+}
+
+interface PokemonType {
+  slot: number;
+  type: {
+    name: string;
+    url: string;
+  };
+}
+
+interface PokemonStat {
+  base_stat: number;
+  effort: number;
+  stat: {
+    name: string;
+    url: string;
+  };
+}
 
 
 
