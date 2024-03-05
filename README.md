@@ -46,7 +46,7 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 ## Overview
 
-This documentation serves as a guide and a reflection of the solution implemented for the PokeAPI Challenge using the Next.js framework. The deployed application successfully consumes data from the PokeAPI to present Pokémon types, lists of Pokémon by category, search capabilities, and detailed Pokémon statistics.
+This documentation serves as a guide and a reflection of the solution implemented for the PokeAPI Challenge using the Next.js framework. The deployed application which is on Vercel successfully consumes data from the PokeAPI to present Pokémon types, lists of Pokémon by category, search capabilities, and detailed Pokémon statistics.
 
 ## Features
 
@@ -60,15 +60,15 @@ Upon selecting a specific Pokémon type, users are presented with a correspondin
 
 ### Pagination
 
-For categories with an extensive number of Pokémon, a client-side pagination mechanism was implemented to maintain performance and usability. The pagination controls allow users to navigate through the dataset, with a maximum of 25 Pokémon displayed per page. This ensures the application remains responsive and user-friendly even when handling large volumes of data.
+For categories with an extensive number of Pokémon, a client-side pagination mechanism was implemented to maintain performance and usability. The pagination controls allow users to navigate through the dataset, with a maximum of 10 Pokémon displayed per page. This ensures the application remains responsive and user-friendly even when handling large volumes of data.
 
 ### Search Capability
 
-A real-time search feature enables users to filter the Pokémon list by names. This functionality was designed to be highly responsive, providing immediate feedback as the user types in the search field. It improves the overall experience by allowing users to quickly locate specific Pokémon within a potentially vast list.
+A real-time search feature enables users to filter the Pokémon list by names. This functionality  provides immediate feedback as the user types in the search field. It improves the overall experience by allowing users to quickly locate specific Pokémon within a potentially vast list.
 
 ### Pokémon Details and Stats Display
 
-Clicking on an individual Pokémon triggers a detailed view, where users can explore in-depth information about the Pokémon's attributes. The details view includes the name, Pokédex ID, height, weight, abilities, and a breakdown of base stats. The data for this feature is obtained from the `/pokemon/{pokemon_name}` endpoint.
+Clicking on an individual Pokémon triggers a detailed view, where users can explore in-depth information about the Pokémon's attributes. The details view includes the name, ID, height, weight, abilities, and a breakdown of base stats. The data for this feature is obtained from the `/pokemon/{pokemon_name}` endpoint.
 
 ## Technical Implementation
 
@@ -90,12 +90,8 @@ The application was also tested across various devices and browsers to confirm i
 
 ## Deployment
 
-The completed application has been deployed and is accessible for public use. It stands as a testament to the effectiveness of Next.js for building performant and feature-rich web applications.
+The completed application has been deployed on Vercel and is accessible for public use.
 
 ## Conclusion
 
 The successful completion of the PokeAPI Challenge demonstrates a practical application of modern web development techniques using Next.js. This solution not only meets the defined requirements but also provides a scalable and maintainable codebase for future enhancements.
-
----
-
-To include this in your Next.js project's README file, simply create or update the `README.md` file at the root of your project with the above content. Make sure to personalize the Deployment section with the actual URL where your application is hosted and provide any additional instructions or notes pertinent to your specific implementation.
