@@ -20,7 +20,7 @@ export default function Navbar() {
     <div>
       <nav>
         <div className={styles.navcontainer}>
-          <Image src="/logo.png" alt="logo" width={100} height={30} />
+          <Image src="/trustcrow.jpg" alt="logo" width={100} height={30} />
           <div className={styles.rightnav}>
             <div className={styles.respnav}>
               <Link href="#" className={styles.menuitem}>

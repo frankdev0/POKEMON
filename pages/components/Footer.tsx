@@ -7,7 +7,7 @@ export default function Footer() {
     <div>
       <div className={styles.footergrid}>
         <div className={styles.pergrid}>
-          <Image src="/logo.png" alt="logo" width={100} height={30} />
+          <Image src="/trustcrow.jpg" alt="logo" width={100} height={30} />
           <div className={styles.footertext}>
             Social media validation business model canvas graphical user
             interface launch party creative facebook iPad twitter.
