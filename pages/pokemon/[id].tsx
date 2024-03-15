@@ -168,7 +168,7 @@ export default function Pokemon() {
                             }}
                           />
                         </div>
-
+                            
                         {filteredPokemon.length > 0 ? (
                           <table className={`${styles.customTable}`}>
                             <thead>

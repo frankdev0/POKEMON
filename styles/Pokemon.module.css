@@ -304,3 +304,12 @@
     transform: rotate(360deg);
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .tableContainer {
+    padding: 1rem 1rem;
+  }
+  .btnsubmit {
+    width: 100%;
+  }
+}
