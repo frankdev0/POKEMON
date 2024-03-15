@@ -62,12 +62,12 @@ const handleSelect = (url: string) => {
         {pokemons &&
             pokemons.map((pokemon, index) => (
                 <div className={styles.eachpokemon} key={index}>
-                    <ul>
+                    <div>
                       <Link className={styles.category} href={`/pokemon/${pokemon.url.split('/').slice(-2, -1)[0]}`}>
-                        <li onClick={() => handleSelect(pokemon.url)}>{pokemon.name}</li>
+                        <div onClick={() => handleSelect(pokemon.url)}>{pokemon.name}</div>
                     </Link>
                         
-                    </ul>
+                    </div>
                 </div>
             ))}
     </div>

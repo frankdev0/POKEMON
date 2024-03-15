@@ -266,7 +266,7 @@
   align-items: center;
   background-color: #f1f1f1;
   border: 1px solid #ccc;
-  padding: 10px;
+  padding: 20px 10px;
 }
 
 .category {
@@ -274,6 +274,8 @@
   color: rgb(67, 67, 255);
   text-decoration: none;
 }
+
+
 
 /* MEDIA QUERIES */
 
